@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>H4rryX GetKey</title>
+<style>body{font-family:Arial,sans-serif;background:#0f1420;color:#eef2f7;text-align:center;padding:34px 18px}h2{font-size:22px}.btn{display:inline-block;background:#2ea043;color:#fff;padding:14px 30px;border-radius:12px;text-decoration:none;font-weight:bold;font-size:18px}.dim{color:#9fb0c3;font-size:14px}</style>
+</head><body>
+<h1>🥭 H4rryX</h1>
+<div id="app"></div>
+<script>
+var q = new URLSearchParams(location.search);
+var t = q.get('t') || '';
+var s = parseInt(q.get('s') || '0', 10) || 0;
+var need = parseInt(q.get('need') || '2', 10) || 2;
+var g = q.get('g') || '';
+var app = document.getElementById('app');
+if (!t) {
+  app.innerHTML = '<p>Bạn mở trang này từ link trong bot @H4rryx1bot nhé — gõ /getkey trong bot để lấy link vượt.</p>';
+} else if (g) {
+  var url = 'https://t.me/H4rryx1bot?start=key_' + t + '.' + g;
+  app.innerHTML = '<h2>🎉 Đủ ' + need + ' link rồi!</h2><p>Bấm nút dưới để quay về bot nhận key 6 giờ của bạn:</p><p><a class="btn" href="' + url + '">✅ NHẬN KEY</a></p><p class="dim">Key sẽ được bot gửi ngay trong cuộc trò chuyện.</p>';
+} else {
+  var next = s + 1;
+  var href = q.get('n' + next) || '';
+  if (href) {
+    app.innerHTML = '<h2>✅ Đã xong link ' + s + '/' + need + '</h2><p>Bấm nút dưới để vượt tiếp link ' + next + ' ngay tại đây:</p><p><a class="btn" href="' + href + '">👉 VƯỢT LINK ' + next + '/' + need + '</a></p><p class="dim">Cứ đi tiếp ngay trên trang này, không cần quay về bot giữa chừng.</p>';
+  } else {
+    app.innerHTML = '<p>Thiếu link tiếp theo — quay lại bot gõ /getkey lấy phiên mới nhé.</p>';
+  }
+}
+</script>
+</body></html>
